@@ -274,4 +274,138 @@ def middle_elem_array(array):
     answer = array[len(array)//2]
     return answer
   
-  
+# STRING in STRING
+def solution(str1, str2):
+    if str2 in str1:
+        answer = 1
+    else:
+        answer = 2
+    return answer
+
+# FIND PAIRS OF NUMBERS WITH MULTIPLY EQUAL TO n
+# 두 숫자의 곱이 n인 자연수 순서쌍의 개수를 return
+def solution(n):
+    answer_list = []
+    for i in range(1, n+1):
+        if n%i==0:
+            answer_list.extend([(i, n//i)])
+    answer = len(answer_list)
+    return answer
+    
+# FIND NUMBER WITH MAX TIMES OF APPEARENCE (최빈값) 
+def solution(array):
+    num_list = [0] * (max(array) + 1)
+    for num in array:
+        num_list[num] += 1
+    mode = -1
+    first_mode = 0
+    second_mode = 0
+    for index, times in enumerate(num_list):
+        if times > first_mode:
+            mode = index
+            first_mode = times
+        elif times == first_mode:
+            second_mode = times
+    if first_mode != second_mode:
+        answer = mode
+    else:
+        answer = -1
+    return answer
+
+
+# CALCULATE ALL DIGITS OF NUMBER
+# n의 각 자리 숫자의 합을 return
+def solution(n):
+    answer = 0
+    n = str(n)
+    for i in n:
+        answer = answer + int(i)
+    return answer
+
+
+# FIND OUT IF NUMBER IS SQUARE (제곱수)
+def solution(n):
+    sqrt_num = n ** (1/2)
+    if sqrt_num % 1 == 0:
+        answer = 1
+    else:
+        answer = 2
+    return answer
+
+
+# CALCULATE SM OF DIGITS IN STRING
+def solution(my_string):
+    answer = 0
+    for m in my_string:
+        if m.isdigit():
+            answer += int(m)
+    return answer
+
+
+# REMOVE CONSONANTS
+def solution(my_string):
+    answer = ''
+    vowels = 'aeiou'
+    for m in my_string:
+        if m not in vowels:
+            answer += m
+    return answer
+
+# FIND NUMBER THAT CAN BE DIVIDED TO n
+def solution(n, numlist):
+    answer = []
+    for num in numlist:
+        if num%n==0:
+            answer.append(num)
+    return answer
+
+
+# UPPER TO LOWER, LOWER TO UPPER
+def solution(my_string):
+    answer = ''
+    for m in my_string:
+        if m.isupper():
+            answer += m.lower()
+        else:
+            answer += m.upper()
+    return answer
+
+
+# TRIANGLE WITH *
+n = int(input())
+answer = ''
+for i in range(1, n+1):
+    print('*' * i)
+    
+
+# GROWTH OF BACTERIA
+# 처음 세균의 마리수 n과 경과한 시간 t가 매개변수로
+# 주어질 때 t시간 후 세균의 수를 return
+def solution(n, t):
+    answer = 0
+    for i in range(1, t+1):
+        answer = n*2
+        n = answer
+    return answer
+
+
+# decryption of message
+# 암호화된 문자열 cipher에서 code의 배수 번째 글자만 진짜 암호
+def solution(cipher, code):
+    answer = ''
+    for i in range(code, len(cipher)+1):
+        if i%code == 0:
+            answer += cipher[i-1]
+    return answer
+
+# ROCK (0), PAPER(5), SCISSORS(2)
+def solution(rsp):
+    answer = ''
+    for i in rsp:
+        if i =='2':
+            answer += '0'
+        elif i == '0':
+            answer += '5'
+        else:
+            answer += '2'
+    return answer
