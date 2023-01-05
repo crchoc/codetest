@@ -409,3 +409,33 @@ def solution(rsp):
         else:
             answer += '2'
     return answer
+
+# ORDER ONLY DIGITS IN STRING
+def solution(rsp):
+    answer = ''
+    for i in rsp:
+        if i =='2':
+            answer += '0'
+        elif i == '0':
+            answer += '5'
+        else:
+            answer += '2'
+    return answer
+
+# GET MAX NUMBER AND ITS INDEX
+def solution(array):
+    answer = [0, 0]
+    for i in range(len(array)):
+        if array[i] > answer[0]:
+            answer[0] = array[i]
+            answer[1] = i
+    return answer
+
+# FIND NUMBERS THAT CAN DIVIDE n
+def solution(n):
+    answer = []
+    for i in range(1, n+1):
+        if n%i==0:
+            answer.append(i)
+    answer.sort()
+    return answer
