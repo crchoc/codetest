@@ -1,4 +1,4 @@
-# 51: FIND NUMBER THAT CAN BE DIVIDED TO n
+# 41: FIND NUMBER THAT CAN BE DIVIDED TO n
 def solution(n, numlist):
     answer = []
     for num in numlist:
@@ -7,7 +7,7 @@ def solution(n, numlist):
     return answer
 
 
-# 52: UPPER TO LOWER, LOWER TO UPPER
+# 42: UPPER TO LOWER, LOWER TO UPPER
 def solution(my_string):
     answer = ''
     for m in my_string:
@@ -18,14 +18,14 @@ def solution(my_string):
     return answer
 
 
-# 53: TRIANGLE WITH *
+# 43: TRIANGLE WITH *
 n = int(input())
 answer = ''
 for i in range(1, n+1):
     print('*' * i)
     
 
-# 54: GROWTH OF BACTERIA
+# 44: GROWTH OF BACTERIA
 # 처음 세균의 마리수 n과 경과한 시간 t가 매개변수로
 # 주어질 때 t시간 후 세균의 수를 return
 def solution(n, t):
@@ -36,7 +36,7 @@ def solution(n, t):
     return answer
 
 
-# 55: decryption of message
+# 45: decryption of message
 # 암호화된 문자열 cipher에서 code의 배수 번째 글자만 진짜 암호
 def solution(cipher, code):
     answer = ''
@@ -45,7 +45,7 @@ def solution(cipher, code):
             answer += cipher[i-1]
     return answer
 
-# 56: ROCK (0), PAPER(5), SCISSORS(2)
+# 46: ROCK (0), PAPER(5), SCISSORS(2)
 def solution(rsp):
     answer = ''
     for i in rsp:
@@ -57,7 +57,7 @@ def solution(rsp):
             answer += '2'
     return answer
 
-# 57: ORDER ONLY DIGITS IN STRING
+# 47: ORDER ONLY DIGITS IN STRING
 def solution(rsp):
     answer = ''
     for i in rsp:
@@ -69,7 +69,7 @@ def solution(rsp):
             answer += '2'
     return answer
 
-# 58: GET MAX NUMBER AND ITS INDEX
+# 48: GET MAX NUMBER AND ITS INDEX
 def solution(array):
     answer = [0, 0]
     for i in range(len(array)):
@@ -78,11 +78,25 @@ def solution(array):
             answer[1] = i
     return answer
 
-# 59: FIND NUMBERS THAT CAN DIVIDE n
+# 49: FIND NUMBERS THAT CAN DIVIDE n
 def solution(n):
     answer = []
     for i in range(1, n+1):
         if n%i==0:
             answer.append(i)
     answer.sort()
+    return answer
+
+# 50: SHIFT ELEMENT OF THE LIST TO RIGHT OR LEFT
+def solution(numbers, direction):
+    answer = []
+    if direction == 'right':
+        answer.append(numbers[len(numbers)-1])
+        for i in range(len(numbers)-1):
+            answer.append(numbers[i])
+        
+    if direction == 'left':
+        for i in range(1, len(numbers)):
+            answer.append(numbers[i])
+        answer.append(numbers[0])
     return answer
