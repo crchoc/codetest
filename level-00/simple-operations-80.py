@@ -40,3 +40,30 @@ def solution(my_str, n):
     for i in range(0, len(my_str), n):
         answer.append(my_str[i:i+n])
     return answer
+
+# 75: Integer factorization
+def solution(n):
+    answer = []
+    fact = []
+    i = 2
+    while i <= n:
+        if n % i == 0:
+            fact.append(i)
+            n = n // i
+        else:
+            i += 1
+    for i in fact:
+        if i not in answer:
+            answer.append(i)
+    return answer
+
+# 76: CALCULATE STRING FORMULA
+def solution(my_string):
+    my_string = my_string.split(' ')
+    answer = int(my_string[0])
+    for i in range(1, len(my_string), 2):
+        if my_string[i] == '+':
+            answer += int(my_string[i+1])
+        else:
+            answer -= int(my_string[i+1])
+    return answer
