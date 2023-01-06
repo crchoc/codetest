@@ -67,3 +67,45 @@ def solution(my_string):
         else:
             answer -= int(my_string[i+1])
     return answer
+
+# 77: CALCULATE BALLS SHARE TIMES
+from math import factorial as fac
+def solution(balls, share):
+    n = fac(balls)
+    m = fac(share)
+    nm = fac(balls - share)
+    answer = n/(nm*m)
+    return answer
+
+# 78: ALIEN VOCABULARY
+def solution(spell, dic):
+    spell = {i: 0 for i in spell}
+
+    for x in dic:
+        if len(x) == len(spell):
+            for y in x:
+                if y in spell:
+                    spell[y] += 1
+                else:
+                    break
+            if len(set(spell.values())) == 1 and sum(set(spell.values())) == 1:
+                return 1
+            spell = {i: 0 for i in spell}
+    return 2
+
+# 79: CUT PAPPER
+def solution(M, N):
+    answer = (M * N) - 1
+    return answer
+
+# 80: SUM OF NUMBERS IN LIST
+# delete element if Z is after it
+def solution(s):
+    stack = []
+    for num in s.split(' '):
+        if num != 'Z':
+            stack.append(int(num))
+        else:
+            stack.pop()
+    answer = sum(stack)
+    return answer
