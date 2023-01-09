@@ -36,4 +36,33 @@ def solution(babbling):
             answer += 1
     return answer
     
-# 94: 
+# 94: LEN OF LINES IN NTHE SAME COORDINATES
+def solution(lines):
+    sets = [set(range(min(l), max(l))) for l in lines]
+    return len(sets[0] & sets[1] | sets[0] & sets[2] | sets[1] & sets[2])
+
+# 95: POLYNOMIAL SUM
+def solution(polynomial):
+    answer = '0'
+    l = polynomial.split("+ ")
+    x, num = 0, 0
+    for a in l:
+        a = a.strip()
+        if a[-1] == "x":
+            if len(a) == 1:
+                x += 1
+            else:
+                x += int(a[:-1])
+        else:
+            num += int(a)
+
+    if x == 0:
+        return str(num)
+    elif num == 0:
+        if x == 1:
+            return "x"
+        return str(x) + "x"
+    if x == 1:
+        return "x + " + str(num)
+    return str(x) + "x + " + str(num)
+
